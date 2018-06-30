@@ -5,10 +5,12 @@ using UberSeries.ViewModel.Base;
 
 namespace UberSeries.ViewModel
 {
-    class DetailViewModel : ViewModelBase
+    public class DetailViewModel : ViewModelBase
     {
 
         public DetailViewModel() : base("")
+        {
+        }
 
     }
 }

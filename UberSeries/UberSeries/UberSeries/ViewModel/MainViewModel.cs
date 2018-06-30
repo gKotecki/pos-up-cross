@@ -7,7 +7,7 @@ namespace UberSeries.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        public MainViewModel() : base("Uber Series")
+        public MainViewModel() : base("UberSeries")
         {
         }
     }
