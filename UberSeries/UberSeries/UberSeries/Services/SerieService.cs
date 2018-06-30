@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using UberSeries.Infra;
+using UberSeries.Infra.Api;
 using UberSeries.Models;
 
 namespace UberSeries.Services
 {
-    public class serieService : ISerieService
+    public class SerieService : ISerieService
     {
-        public Task<SerieResponse> GetSeriesAsync()
+
+        readonly ITmdbApi _api;
+
+        public SerieService(ITmdbApi api)
         {
-            throw new NotImplementedException();
+            _api = api;
+        }
+
+        public async Task<SerieResponse> GetSeriesAsync()
+        {
+            return await _api.GetSerieResponseAsync(AppSettings.ApiKey);
         }
     }
 }
