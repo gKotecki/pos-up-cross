@@ -1,6 +1,6 @@
 using System;
 using Newtonsoft.Json;
-
+using UberSeries.Infra;
 
 namespace UberSeries.Models
 {
@@ -29,6 +29,19 @@ namespace UberSeries.Models
 
         [JsonProperty("poster_path")]
         public string PosterPath { get; set; }
+
+        [JsonIgnore]
+        public string Poster
+        {
+            get { return $"{AppSettings.ApiImageBaseUrl}{PosterPath}"; }
+        }
+
+        [JsonIgnore]
+        public string Backdrop
+        {
+            get { return $"{AppSettings.ApiImageBaseUrl}{BackdropPath}"; }
+        }
+
 
         [JsonIgnore]
         public string ReleaseDate { get { return $"{FirstAirDate:dd/MM/yy}"; } } //tem q mudar esse negocio em outra parte do codigo, ta com () ao inves de {}

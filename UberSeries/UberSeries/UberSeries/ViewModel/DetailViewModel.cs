@@ -72,8 +72,8 @@ namespace UberSeries.ViewModel
             Name = serie.OriginalName;
             Overview = serie.Overview;
 
-            Poster = serie.PosterPath;
-            Backdrop = serie.BackdropPath;
+            Poster = serie.Poster;
+            Backdrop = serie.Backdrop;
             ReleaseDate = serie.ReleaseDate;
 
             Votes = serie.VoteAverage;
