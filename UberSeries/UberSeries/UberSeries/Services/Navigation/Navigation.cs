@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using UberSeries.ViewModel;
 using UberSeries.ViewModel.Base;
+using UberSeries.Views;
 using Xamarin.Forms;
 
 namespace UberSeries.Services
