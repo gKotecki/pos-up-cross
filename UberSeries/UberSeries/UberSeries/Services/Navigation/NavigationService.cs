@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace UberSeries.Services
 {
-    public class Navigation : iNavigationService
+    public class NavigationService : INavigationService
     {
 
         protected readonly Dictionary<Type, Type> _mappings;
@@ -20,7 +20,7 @@ namespace UberSeries.Services
             get { return Application.Current; }
         }
 
-        public Navigation()
+        public NavigationService()
         {
             _mappings = new Dictionary<Type, Type>();
             CreateViewModelMappings();

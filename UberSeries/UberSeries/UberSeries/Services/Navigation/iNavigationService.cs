@@ -6,7 +6,7 @@ using UberSeries.ViewModel.Base;
 
 namespace UberSeries.Services
 {
-    public interface iNavigationService
+    public interface INavigationService
     {
 
         Task InitializeAsync();

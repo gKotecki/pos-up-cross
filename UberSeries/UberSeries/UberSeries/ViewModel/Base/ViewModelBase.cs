@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using UberSeries.Services;
 using Xamarin.Forms;
 
 namespace UberSeries.ViewModel.Base
 {
     public abstract class ViewModelBase : BindableObject
     {
+
+        protected readonly INavigationService NavigationService;
 
         string _title;
         public string Title
@@ -19,6 +22,7 @@ namespace UberSeries.ViewModel.Base
         public ViewModelBase(string title)
         {
             Title = title;
+            NavigationService = ViewModelLocator.Instance.Resolve<INavigationService>();
         }
 
         public virtual Task InitializeAsync(object navigationData)

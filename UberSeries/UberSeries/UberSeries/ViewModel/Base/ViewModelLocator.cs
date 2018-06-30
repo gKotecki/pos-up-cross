@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Autofac;
+using UberSeries.Services;
 
 namespace UberSeries.ViewModel.Base
 {
@@ -20,6 +21,11 @@ namespace UberSeries.ViewModel.Base
         public ViewModelLocator()
         {
             _containerBuilder = new ContainerBuilder();
+
+            _containerBuilder.RegisterType<NavigationService>().As<INavigationService>();
+
+            _containerBuilder.RegisterType<MainViewModel>();
+            _containerBuilder.RegisterType<DetailViewModel>();
         }
 
         public T Resolve<T>()

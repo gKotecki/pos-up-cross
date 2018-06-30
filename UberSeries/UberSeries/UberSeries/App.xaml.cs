@@ -1,4 +1,6 @@
 using System;
+using UberSeries.Services;
+using UberSeries.ViewModel.Base;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,6 +13,21 @@ namespace UberSeries
         {
             InitializeComponent();
 
+            BuildDependencies();
+
+            InitNavigation();
+
+        }
+
+        private async void InitNavigation()
+        {
+            var navigationService = ViewModelLocator.Instance.Resolve<INavigationService>();
+            await navigationService.InitializeAsync();
+        }
+
+        private void BuildDependencies()
+        {
+            ViewModelLocator.Instance.Build();
         }
 
         protected override void OnStart()
