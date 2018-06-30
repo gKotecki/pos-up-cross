@@ -19,13 +19,13 @@ namespace UberSeries
 
         }
 
-        private async void InitNavigation()
+        async void InitNavigation()
         {
             var navigationService = ViewModelLocator.Instance.Resolve<INavigationService>();
             await navigationService.InitializeAsync();
         }
 
-        private void BuildDependencies()
+        void BuildDependencies()
         {
             ViewModelLocator.Instance.Build();
         }
