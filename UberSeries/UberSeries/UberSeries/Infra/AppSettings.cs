@@ -6,8 +6,9 @@ namespace UberSeries.Infra
 {
     public static class AppSettings
     {
+        //minha API: 1a39052fdeecaa40640b06845e4b108d
         public const string ApiUrl = "https://api.themoviedb.org/3";
-        public const string ApiKey = "ad332258020257fb88e2cc468225dcb0";
+        public const string ApiKey = "1a39052fdeecaa40640b06845e4b108d"; 
         public const string ApiImageBaseUrl = "https://image.tmdb.org/t/p/w500/";
     }
 }
