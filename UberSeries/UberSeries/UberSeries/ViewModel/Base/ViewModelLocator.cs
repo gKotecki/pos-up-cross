@@ -23,6 +23,7 @@ namespace UberSeries.ViewModel.Base
             _containerBuilder = new ContainerBuilder();
 
             _containerBuilder.RegisterType<NavigationService>().As<INavigationService>();
+            _containerBuilder.RegisterType<serieService>().As<ISerieService>();
 
             _containerBuilder.RegisterType<MainViewModel>();
             _containerBuilder.RegisterType<DetailViewModel>();

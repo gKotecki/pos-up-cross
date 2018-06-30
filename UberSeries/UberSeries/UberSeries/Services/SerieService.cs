@@ -6,9 +6,9 @@ using UberSeries.Models;
 
 namespace UberSeries.Services
 {
-    public class SerieService : ISerieService
+    public class serieService : ISerieService
     {
-        public Task<IEnumerable<SerieResponse>> GetSeriesAsync()
+        public Task<SerieResponse> GetSeriesAsync()
         {
             throw new NotImplementedException();
         }
