@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using Autofac;
+using UberSeries.Infra.Api;
 using UberSeries.Services;
+using Refit;
+using System.Net.Http;
+using UberSeries.Infra.HttpTools;
+using UberSeries.Infra;
 
 namespace UberSeries.ViewModel.Base
 {
@@ -27,11 +32,25 @@ namespace UberSeries.ViewModel.Base
 
             _containerBuilder.RegisterType<MainViewModel>();
             _containerBuilder.RegisterType<DetailViewModel>();
+
+            _containerBuilder.Register(api =>
+            {
+
+                var client = new HttpClient(new HttpLoggingHandler())
+                {
+                    BaseAddress = new Uri(AppSettings.ApiUrl),
+                    Timeout = TimeSpan.FromSeconds(90)
+                };
+
+                return RestService.For<ITmdbApi>(client);
+
+            }).As<ITmdbApi>().InstancePerDependency();
+
         }
 
         public T Resolve<T>()
         {
-           return _container.Resolve<T>();
+            return _container.Resolve<T>();
         }
 
         public object Resolve(Type type)

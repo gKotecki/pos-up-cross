@@ -108,7 +108,7 @@ namespace UberSeries.Services
 
             if (pageType == null)
             {
-                throw new Exception($"O mapeamento para o tipo (viewModelType) nao existe");
+                throw new Exception($"O mapeamento para o tipo {viewModelType} nao existe");
             }
 
             Page page = Activator.CreateInstance(pageType) as Page;
@@ -122,7 +122,7 @@ namespace UberSeries.Services
         {
             if (!_mappings.ContainsKey(viewModelType))
             {
-                throw new Exception($"O tipo (ViewModelType) nao corresponde a nenhuma View!");
+                throw new Exception($"O tipo {viewModelType} nao corresponde a nenhuma View!");
             }
 
             return _mappings[viewModelType];

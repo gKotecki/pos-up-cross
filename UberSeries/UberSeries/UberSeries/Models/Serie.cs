@@ -29,5 +29,8 @@ namespace UberSeries.Models
 
         [JsonProperty("poster_path")]
         public string PosterPath { get; set; }
+
+        [JsonIgnore]
+        public string ReleaseDate { get { return $"{FirstAirDate:dd/MM/yy}"; } } //tem q mudar esse negocio em outra parte do codigo, ta com () ao inves de {}
     }
 }
