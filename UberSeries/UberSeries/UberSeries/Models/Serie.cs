@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
 using UberSeries.Infra;
+using Newtonsoft.Json;
 
 namespace UberSeries.Models
 {
@@ -42,8 +42,13 @@ namespace UberSeries.Models
             get { return $"{AppSettings.ApiImageBaseUrl}{BackdropPath}"; }
         }
 
-
         [JsonIgnore]
-        public string ReleaseDate { get { return $"{FirstAirDate:dd/MM/yy}"; } } //tem q mudar esse negocio em outra parte do codigo, ta com () ao inves de {}
+        public string ReleaseDate
+        {
+            get
+            {
+                return $"{FirstAirDate:dd/MM/yy}";
+            }
+        }
     }
 }

@@ -1,15 +1,14 @@
-﻿using System;
+﻿using UberSeries.Models;
+using UberSeries.ViewModel.Base;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using UberSeries.Models;
-using UberSeries.ViewModel.Base;
 
 namespace UberSeries.ViewModel
 {
     public class DetailViewModel : ViewModelBase
     {
-
         //name
         string _name;
         public string Name
@@ -58,11 +57,9 @@ namespace UberSeries.ViewModel
             set { _releaseDate = value; OnPropertyChanged(); }
         }
 
-        
         public DetailViewModel() : base("")
         {
         }
-
 
         public override async Task InitializeAsync(object parameter)
         {
@@ -80,6 +77,5 @@ namespace UberSeries.ViewModel
 
             await base.InitializeAsync(parameter);
         }
-
     }
 }

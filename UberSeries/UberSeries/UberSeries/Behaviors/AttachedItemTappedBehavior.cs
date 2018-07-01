@@ -6,7 +6,6 @@ using Xamarin.Forms;
 
 namespace UberSeries.Behaviors
 {
-
     public static class AttachedItemTappedBehavior
     {
         public static readonly BindableProperty CommandProperty =
@@ -31,5 +30,4 @@ namespace UberSeries.Behaviors
                 control.SelectedItem = null;
             };
     }
-
 }

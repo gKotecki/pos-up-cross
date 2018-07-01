@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Net.Http;
 using Autofac;
+using UberSeries.Infra;
 using UberSeries.Infra.Api;
+using UberSeries.Infra.HttpTools;
 using UberSeries.Services;
 using Refit;
-using System.Net.Http;
-using UberSeries.Infra.HttpTools;
-using UberSeries.Infra;
 
 namespace UberSeries.ViewModel.Base
 {
-    class ViewModelLocator
+    public class ViewModelLocator
     {
-
         IContainer _container;
         ContainerBuilder _containerBuilder;
 
@@ -35,7 +32,6 @@ namespace UberSeries.ViewModel.Base
 
             _containerBuilder.Register(api =>
             {
-
                 var client = new HttpClient(new HttpLoggingHandler())
                 {
                     BaseAddress = new Uri(AppSettings.ApiUrl),
@@ -45,7 +41,6 @@ namespace UberSeries.ViewModel.Base
                 return RestService.For<ITmdbApi>(client);
 
             }).As<ITmdbApi>().InstancePerDependency();
-
         }
 
         public T Resolve<T>()
@@ -58,10 +53,10 @@ namespace UberSeries.ViewModel.Base
             return _container.Resolve(type);
         }
 
-        public void Register<TInterface, TImprementaion>()
-            where TImprementaion : TInterface
+        public void Register<TInterface, TImplementation>()
+            where TImplementation : TInterface
         {
-            _containerBuilder.RegisterType<TImprementaion>().As<TInterface>();
+            _containerBuilder.RegisterType<TImplementation>().As<TInterface>();
         }
 
         public void Register<T>() where T : class
@@ -74,8 +69,5 @@ namespace UberSeries.ViewModel.Base
             if (_container == null)
                 _container = _containerBuilder.Build();
         }
-
-
-
     }
 }

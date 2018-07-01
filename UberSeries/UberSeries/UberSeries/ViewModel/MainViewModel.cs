@@ -1,32 +1,28 @@
-﻿using System;
+﻿using UberSeries.Models;
+using UberSeries.Services;
+using UberSeries.ViewModel.Base;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using UberSeries.Models;
-using UberSeries.Services;
-using UberSeries.ViewModel.Base;
 using Xamarin.Forms;
 
 namespace UberSeries.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-
         readonly ISerieService _serieService;
 
         public ICommand ItemClickCommand { get; }
-
         public ObservableCollection<Serie> Items { get; }
 
-        public MainViewModel(ISerieService serieService) : base("UberSeries")
+        public MainViewModel(ISerieService serieService) : base("Awesome Series")
         {
             _serieService = serieService;
-
             Items = new ObservableCollection<Serie>();
-
             ItemClickCommand = new Command<Serie>(async (item)
                 => await ItemClickCommandExecute(item));
         }
@@ -37,9 +33,9 @@ namespace UberSeries.ViewModel
                 await NavigationService.NavigateToAsync<DetailViewModel>(serie);
         }
 
-        public override async Task InitializeAsync(object navigationData)
+        public override async Task InitializeAsync(object navgationData)
         {
-            await base.InitializeAsync(navigationData);
+            await base.InitializeAsync(navgationData);
 
             await LoadDataAsync();
         }
@@ -48,17 +44,13 @@ namespace UberSeries.ViewModel
         {
             var result = await _serieService.GetSeriesAsync();
 
-            AddItems(result);
+            AddItens(result);
         }
 
-        private void AddItems(SerieResponse result)
+        private void AddItens(SerieResponse result)
         {
             Items.Clear();
-
             result?.Series.ToList()?.ForEach(i => Items.Add(i));
         }
-
-
-
     }
 }

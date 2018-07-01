@@ -1,18 +1,18 @@
-﻿using System;
+﻿using AwesomeSeries.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UberSeries.ViewModel;
 using UberSeries.ViewModel.Base;
 using UberSeries.Views;
 using Xamarin.Forms;
 
+
 namespace UberSeries.Services
 {
     public class NavigationService : INavigationService
     {
-
         protected readonly Dictionary<Type, Type> _mappings;
 
         protected Application CurrentApplication
@@ -32,14 +32,15 @@ namespace UberSeries.Services
             _mappings.Add(typeof(DetailViewModel), typeof(DetailView));
         }
 
-        public async Task InitializeAsync()
+        public async Task Initialize()
         {
             await NavigateToAsync<MainViewModel>();
         }
 
-        public async Task NavigateAndClearBackStackAsync<TViewModel>(object parameter = null) where TViewModel : ViewModelBase
+        public async Task NavigateAndClearBackStackAsync<TViewModel>(object parameter = null)
+            where TViewModel : ViewModelBase
         {
-            Page page = CreateAndBindPage(typeof(TViewModel), parameter);
+            Page page = CreateAndBingPage(typeof(TViewModel), parameter);
             var navigationPage = CurrentApplication.MainPage as NavigationPage;
 
             await navigationPage.PushAsync(page);
@@ -69,24 +70,18 @@ namespace UberSeries.Services
         public Task NavigateToAsync<TViewModel>() where TViewModel : ViewModelBase
             => InternalNavigateToAsync(typeof(TViewModel), null);
 
-
         public Task NavigateToAsync<TViewModel>(object parameter) where TViewModel : ViewModelBase
             => InternalNavigateToAsync(typeof(TViewModel), parameter);
-
 
         public Task NavigateToAsync(Type viewModelType)
             => InternalNavigateToAsync(viewModelType, null);
 
-
         public Task NavigateToAsync(Type viewModelType, object parameter)
             => InternalNavigateToAsync(viewModelType, parameter);
 
-
-
-
         async Task InternalNavigateToAsync(Type viewModelType, object parameter)
         {
-            Page page = CreateAndBindPage(viewModelType, parameter);
+            Page page = CreateAndBingPage(viewModelType, parameter);
 
             var navigationPage = CurrentApplication.MainPage as NavigationPage;
 
@@ -99,20 +94,25 @@ namespace UberSeries.Services
                 CurrentApplication.MainPage = new NavigationPage(page);
             }
 
-            await (page.BindingContext as ViewModelBase).InitializeAsync(parameter);
+            await (page.BindingContext as ViewModelBase)
+                .InitializeAsync(parameter);
         }
 
-        Page CreateAndBindPage(Type viewModelType, object parameter)
+        Page CreateAndBingPage(Type viewModelType, object parameter)
         {
             Type pageType = GetPageTypeForViewModel(viewModelType);
 
             if (pageType == null)
             {
-                throw new Exception($"O mapeamento para o tipo {viewModelType} nao existe");
+                throw new Exception($"O mapeamento para o tipo {viewModelType} não existe!");
             }
 
             Page page = Activator.CreateInstance(pageType) as Page;
-            ViewModelBase viewModel = ViewModelLocator.Instance.Resolve(viewModelType) as ViewModelBase;
+
+            ViewModelBase viewModel = ViewModelLocator
+                .Instance
+                .Resolve(viewModelType) as ViewModelBase;
+
             page.BindingContext = viewModel;
 
             return page;
@@ -122,13 +122,11 @@ namespace UberSeries.Services
         {
             if (!_mappings.ContainsKey(viewModelType))
             {
-                throw new Exception($"O tipo {viewModelType} nao corresponde a nenhuma View!");
+                throw new Exception($"O tipo {viewModelType} não corresponde a nenhuma View!");
             }
 
             return _mappings[viewModelType];
         }
-
-
 
 
         #region Not Implemented

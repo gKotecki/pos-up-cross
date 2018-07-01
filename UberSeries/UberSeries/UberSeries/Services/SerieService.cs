@@ -10,7 +10,6 @@ namespace UberSeries.Services
 {
     public class SerieService : ISerieService
     {
-
         readonly ITmdbApi _api;
 
         public SerieService(ITmdbApi api)

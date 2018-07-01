@@ -1,8 +1,8 @@
-﻿using System;
+﻿using UberSeries.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using UberSeries.Models;
 
 namespace UberSeries.Services
 {

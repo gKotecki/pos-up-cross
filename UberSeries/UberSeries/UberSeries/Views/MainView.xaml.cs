@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace UberSeries.Views
+namespace AwesomeSeries.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MainView : ContentPage
-	{
-		public MainView ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MainView : ContentPage
+    {
+        public MainView()
+        {
+            InitializeComponent();
+
+
+        }
+    }
 }
