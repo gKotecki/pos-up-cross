@@ -19,7 +19,7 @@ namespace UberSeries.ViewModel
         public ICommand ItemClickCommand { get; }
         public ObservableCollection<Serie> Items { get; }
 
-        public MainViewModel(ISerieService serieService) : base("Awesome Series")
+        public MainViewModel(ISerieService serieService) : base("UberSeries")
         {
             _serieService = serieService;
             Items = new ObservableCollection<Serie>();
