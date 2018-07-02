@@ -9,18 +9,19 @@
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand"
             HasUnevenRows="True"
-            SeparatorColor="Black"
+            SeparatorColor="Gray"
             CachingStrategy="RecycleElement"
             ItemsSource="{Binding Items}"
-            behaviors:AttachedItemTappedBehavior.Command="{Binding ItemClickCommand}"
-            >
+            behaviors:AttachedItemTappedBehavior.Command="{Binding ItemClickCommand}">
+            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout 
                             Orientation="Horizontal"
                             VerticalOptions="FillAndExpand"
-                            HorizontalOptions="FillAndExpand">
+                            HorizontalOptions="FillAndExpand"
+                            Margin="2,1,0,1">
                             <Image Source="{Binding Poster}"    
                             VerticalOptions="Start"
                                    HorizontalOptions="Start" 

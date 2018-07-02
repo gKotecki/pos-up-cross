@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UberSeries.Views.DetailView"
              Title="{Binding Name}">    <!--titulo da pagina-->
-    
+
     <ContentPage.Content>
         <StackLayout>       <!--imagem de fundo-->
             <Image Source="{Binding Backdrop}"
-                   HorizontalOptions="FillAndExpand"/>   <!--tirei o HeightRequest="220"-->
+                   HorizontalOptions="FillAndExpand"/>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">   <!--release date-->
                 <Label Text="Release Date:"
@@ -15,7 +15,7 @@
                        FontAttributes="Bold" FontSize="Small"
                        VerticalTextAlignment="Center" HorizontalOptions="Center"/>
                 <Label Text="{Binding ReleaseDate}"
-                       FontSize="Small" 
+                       FontSize="Small" Margin="0,15,0,0"
                        VerticalTextAlignment="Center" HorizontalOptions="Center"/>
             </StackLayout>
 
@@ -29,13 +29,12 @@
                        VerticalTextAlignment="Center" HorizontalOptions="Center"/>
             </StackLayout>
 
-            <BoxView BackgroundColor="DimGray" 
+            <BoxView BackgroundColor="Gray" 
                      Margin="10,15,10,15"
                      HeightRequest="1"/>  <!--separador-->
 
             <ScrollView VerticalOptions="FillAndExpand" Margin="10,0,10,0">    <!--descriçao com scroll-->
-                <Label Text="{Binding Overview}"
-                   VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                <Label Text="{Binding Overview}"/>
             </ScrollView>
 
         </StackLayout>
