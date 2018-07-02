@@ -57,6 +57,14 @@ namespace UberSeries.ViewModel
             set { _releaseDate = value; OnPropertyChanged(); }
         }
 
+        //release year
+        string _releaseYear;
+        public string ReleaseYear
+        {
+            get { return _releaseYear; }
+            set { _releaseYear = value; OnPropertyChanged(); }
+        }
+
         public DetailViewModel() : base("")
         {
         }
@@ -72,6 +80,7 @@ namespace UberSeries.ViewModel
             Poster = serie.Poster;
             Backdrop = serie.Backdrop;
             ReleaseDate = serie.ReleaseDate;
+            ReleaseYear = serie.ReleaseYear;
 
             Votes = serie.VoteAverage;
 

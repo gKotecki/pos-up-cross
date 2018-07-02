@@ -33,22 +33,25 @@ namespace UberSeries.Models
         [JsonIgnore]
         public string Poster
         {
-            get { return $"{AppSettings.ApiImageBaseUrl}{PosterPath}"; }
+            get { return $"{AppSettings.ApiImageBaseUrl}/w342{PosterPath}"; }
         }
 
         [JsonIgnore]
         public string Backdrop
         {
-            get { return $"{AppSettings.ApiImageBaseUrl}{BackdropPath}"; }
+            get { return $"{AppSettings.ApiImageBaseUrl}/w1280{BackdropPath}"; }
         }
 
         [JsonIgnore]
         public string ReleaseDate
         {
-            get
-            {
-                return $"{FirstAirDate:dd/MM/yy}";
-            }
+            get { return $"{FirstAirDate:dd/MM/yy}"; }
+        }
+
+        [JsonIgnore]
+        public string ReleaseYear
+        {
+            get { return $"{FirstAirDate:yyyy}"; }
         }
     }
 }

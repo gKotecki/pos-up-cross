@@ -9,6 +9,6 @@ namespace UberSeries.Infra
         //minha API: 1a39052fdeecaa40640b06845e4b108d
         public const string ApiUrl = "https://api.themoviedb.org/3";
         public const string ApiKey = "1a39052fdeecaa40640b06845e4b108d"; 
-        public const string ApiImageBaseUrl = "https://image.tmdb.org/t/p/w500";
-    }
+        public const string ApiImageBaseUrl = "https://image.tmdb.org/t/p";  //originalmente /w500
+    }                                                                        //agora poster w342, bd w1280 em Serie.cs
 }
