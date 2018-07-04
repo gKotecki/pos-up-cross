@@ -2,41 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UberSeries.Views.DetailView"
-             Title="{Binding Name}">    <!--titulo da pagina-->
+             Title="{Binding Name}">
+    <!--titulo da pagina-->
 
     <ContentPage.Content>
-        <StackLayout>       <!--imagem de fundo-->
-            <Image Source="{Binding Backdrop}"
+        <ScrollView>
+            <StackLayout>
+                <!--imagem de fundo-->
+                <Image Source="{Binding Backdrop}"
                    HorizontalOptions="FillAndExpand"/>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">   <!--release date-->
-                <Label Text="Release Date:"
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <!--release date-->
+                    <Label Text="Release Date:"
                        Margin="10,15,0,0"
                        FontAttributes="Bold" FontSize="Small"
                        VerticalTextAlignment="Center" HorizontalOptions="Center"/>
-                <Label Text="{Binding ReleaseDate}"
+                    <Label Text="{Binding ReleaseDate}"
                        FontSize="Small" Margin="0,15,0,0"
                        VerticalTextAlignment="Center" HorizontalOptions="Center"/>
-            </StackLayout>
+                </StackLayout>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">   <!--average score-->
-                <Label Text="Average Score:"
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <!--average score-->
+                    <Label Text="Average Score:"
                        Margin="10,0,0,0"
                        FontAttributes="Bold" FontSize="Small"
                        VerticalTextAlignment="Center" HorizontalOptions="Center"/>
-                <Label Text="{Binding Votes}"
+                    <Label Text="{Binding Votes}"
                        FontSize="Small" 
                        VerticalTextAlignment="Center" HorizontalOptions="Center"/>
-            </StackLayout>
+                </StackLayout>
 
-            <BoxView BackgroundColor="Gray" 
+                <BoxView BackgroundColor="Gray" 
                      Margin="10,15,10,15"
-                     HeightRequest="1"/>  <!--separador-->
+                     HeightRequest="1"/>
+                <!--separador-->
 
-            <ScrollView VerticalOptions="FillAndExpand" Margin="10,0,10,0">    <!--descriçao com scroll-->
-                <Label Text="{Binding Overview}"/>
-            </ScrollView>
+                <ScrollView VerticalOptions="FillAndExpand" Margin="10,0,10,0">
+                    <!--descriçao com scroll-->
+                    <Label Text="{Binding Overview}"/>
+                </ScrollView>
+            </StackLayout>
+        </ScrollView>
 
-        </StackLayout>
+
+
     </ContentPage.Content>
 </ContentPage>
