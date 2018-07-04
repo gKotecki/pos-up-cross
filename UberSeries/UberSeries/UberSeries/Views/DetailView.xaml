@@ -8,12 +8,12 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                
                 <!--imagem de fundo-->
                 <Image Source="{Binding Backdrop}"
                    HorizontalOptions="FillAndExpand"/>
 
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <!--release date-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">     <!--release date--> 
                     <Label Text="Release Date:"
                        Margin="10,15,0,0"
                        FontAttributes="Bold" FontSize="Small"
@@ -23,8 +23,7 @@
                        VerticalTextAlignment="Center" HorizontalOptions="Center"/>
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <!--average score-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">        <!--average score-->
                     <Label Text="Average Score:"
                        Margin="10,0,0,0"
                        FontAttributes="Bold" FontSize="Small"
@@ -36,17 +35,14 @@
 
                 <BoxView BackgroundColor="Gray" 
                      Margin="10,15,10,15"
-                     HeightRequest="1"/>
-                <!--separador-->
+                     HeightRequest="1"/>        <!--separador-->
 
-                <ScrollView VerticalOptions="FillAndExpand" Margin="10,0,10,0">
-                    <!--descriçao com scroll-->
+                <ScrollView VerticalOptions="FillAndExpand" Margin="10,0,10,0">         <!--descriçao com scroll-->
                     <Label Text="{Binding Overview}"/>
                 </ScrollView>
+                
             </StackLayout>
         </ScrollView>
-
-
-
     </ContentPage.Content>
+    
 </ContentPage>
